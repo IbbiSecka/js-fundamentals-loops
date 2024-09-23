@@ -13,21 +13,57 @@ const deepThree = []
 
 // HINT: in the below loop, the statements and block of code needs to be changed
 // HINT: in the below loop, the var i represents the loop index
-// for (let i = 5; i < 7; i++) {
-// Your code here
-// }
+for (let i = 1; i <= END; i++) {
+  simpleOne.push(i)
+ }
 
 // 2. Using nested for loops, add arrays to 'nestedOne' where each array has n copies of the outer 'loop index'
 //    eg [[1],[2,2],...]
-
+for(let i = 1 ; i <= END ; i++){
+  subarray = []
+  for(let j = 0 ; j < i ; j++){
+    subarray.push(i)
+  }
+  nestedOne.push(subarray)
+}
+// 
 // 3. As 2, but each array should contain the values from the outer 'loop index' to 1 inclusive. Update array 'nestedTwo'
 //    eg [[1],[2,1],...]
-
+  for (let i = 1 ; i <= END ; i++){
+    subarray = []
+    subarray.push(i)
+    for (let j = i - 1 ;j > 0 ; j-- ){
+        subarray.push(j)
+    }
+    nestedTwo.push(subarray)
+  }
 // 4. As 2, but each array should contain arrays from 1 to the outer 'loop index' with the value of the outer 'loop index'. Update array 'deepOne'
 //    eg [[[1]],[[2],[2,2]],...]
+for(let i = 1 ; i <= END ; i ++){
+  indexarray = []
+  for(let j = 1 ; j <= i ; j ++){
+    let subarray = new Array(j).fill(i)
+    indexarray.push(subarray)
+
+  }
+  deepOne.push(indexarray)
+}
+
 
 // 5. As 4, update array 'deepTwo' so that the result is:
 //       [[[1]],[[1],[1,2]],...]
+for(let i = 1 ; i <= END ; i ++){
+  indexarray = []
+  for(let j = 1 ; j <= i ; j ++){
+    let subarray = []
+    for (let a = 1; a <= j ; a++){
+    subarray.push(a)  
+    }
+    
+    indexarray.push(subarray)
+  }
+  deepTwo.push(indexarray)
+}
 
 // 6. As 5, update the array 'deepThree', but the result should be the average of the sum of the squares of the numbers in each array
 //       [[1],[[1],[2.5]],...]
